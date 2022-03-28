@@ -1,9 +1,23 @@
 ---
-- name: Deploy a jar file
-  hosts: ubuntu18
-  remote_user: shivani
+- name: Pull docker image of Calculator
+  hosts: all
   tasks:
-    - name: Copy jar file to home directory
-      copy:
-        src: ./target/calculatorDevOps-1.0-SNAPSHOT-jar-with-dependencies.jar
-        dest: ~/
+    - name: install docker
+      apt:
+        name: "{{item}}"
+        state: latest
+        update_cache: yes
+      loop:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+    - name: Start docker service
+      service:
+        name: docker
+        state: started
+        
+    - name: pull docker image
+      shell: docker pull shivanisheth/mini_project:8
+      
+    - name: running container
+      shell: docker run -it -d shivanisheth/mini_project:8
