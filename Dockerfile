@@ -1,4 +1,4 @@
 FROM openjdk:11
-COPY ./target/MavenDemo-1.0-SNAPSHOT-jar-with-dependencies.jar ./
+COPY ./target/mini_project-1.0-SNAPSHOT-jar-with-dependencies.jar ./
 WORKDIR ./
-CMD ["java", "-jar", "MavenDemo-1.0-SNAPSHOT-jar-with-dependencies.jar"]
+CMD ["java", "-jar", "mini_project-1.0-SNAPSHOT-jar-with-dependencies.jar"]
