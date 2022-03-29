@@ -2,14 +2,15 @@
 - name: Pull docker image of Calculator
   hosts: all
   tasks:
-
-    - name: Start docker service
-      service:
-        name: docker
-        state: started
+    - name: Pull image
+      docker_image:
+        name: shivanisheth/mini_project
+        source: pull
         
-    - name: pull docker image
-      shell: docker pull shivanisheth/mini_project
-      
-#     - name: running container
-#       shell: docker run -it -d shivanisheth/mini_project
+#     - name: deploy docker container
+#       docker_container:
+#         image: shivanisheth/mini_project
+#         name: container2
+#         state: started
+#         ports:
+#           - "8080:80"
