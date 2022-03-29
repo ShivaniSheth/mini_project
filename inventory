@@ -1,2 +1,2 @@
 [ubuntu18]
-172.16.145.63 ansible_user=shivani
+172.16.145.63 ansible_ssh_pass=user123 ansible_user=shivani
